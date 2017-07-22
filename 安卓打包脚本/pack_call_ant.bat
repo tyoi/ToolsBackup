@@ -1,0 +1,1 @@
+ant -buildfile pack_build_local.xml release

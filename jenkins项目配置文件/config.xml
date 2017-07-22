@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>14</daysToKeep>
+        <numToKeep>150</numToKeep>
+        <artifactDaysToKeep>14</artifactDaysToKeep>
+        <artifactNumToKeep>150</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>res</name>
+          <description>cleanRes - 删除并重新复制资源文件
+updateRes - 更新资源文件</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>updateRes</string>
+              <string>cleanRes</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>script</name>
+          <description>cleanScript - 删除并重新生成脚本文件
+updateScript - 更新脚本文件</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>updateScript</string>
+              <string>cleanScript</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>connect</name>
+          <description>web - 通过web连接服务器
+server - 通过uid直连某人私服
+uidweb - 通过uid连接web服务器登录</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>web</string>
+              <string>server</string>
+              <string>uidweb</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>webAddress</name>
+          <description>input - 自己手动输入web地址
+王洪海机器：192.168.2.171:8245
+王同赛机器：192.168.2.171:8241
+卢洋洋机器：192.168.2.171:8200
+俞钦彭机器：192.168.2.171:8202
+英文版机器：192.168.2.171:8204
+繁体版机器：192.168.2.171:8206
+活动机器：192.168.2.171:8208
+韩永涛机器：192.168.2.171:8209
+袁首机器：192.168.2.171:8210
+日文版机器：192.168.2.171:8211
+美国版机器：192.168.2.171:8212
+IOS版机器：192.168.2.171:8213
+版署审核版机器：192.168.2.171:8215
+广告测试机器：192.168.2.171:8216
+韩国版机器：192.168.2.171:8218
+宋君机器：http://192.168.2.171:8220
+王凯峰机器：192.168.2.171:8221
+俄罗斯机器：192.168.2.171:8222
+法国机器：192.168.2.171:8223
+莫超机器：192.168.2.171:8224
+赵彬机器：192.168.2.171:8227
+中东机器：192.168.2.186:8200
+德国机器：192.168.2.186:8201
+张凯航机器：192.168.2.171:8242
+&quot;worldship.app1101790342.twsapp.com/&quot;, --应用宝正式
+&quot;web.gz.1251006671.clb.myqcloud.com/&quot;,--联运正式
+&quot;http://203.195.180.143:8090/&quot;,-- 联运测试</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>http://192.168.2.171/</string>
+              <string>http://192.168.2.171:8245/</string>
+              <string>http://192.168.2.171:8241/</string>
+              <string>http://192.168.2.171:8200/</string>
+              <string>http://192.168.2.171:8202/</string>
+              <string>http://192.168.2.171:8204/</string>
+              <string>http://192.168.2.171:8206/</string>
+              <string>http://192.168.2.171:8202/</string>
+              <string>http://192.168.2.171:8204/</string>
+              <string>http://192.168.2.171:8208/</string>
+              <string>http://192.168.2.171:8209/</string>
+              <string>http://192.168.2.171:8210/</string>
+              <string>http://192.168.2.171:8211/</string>
+              <string>http://192.168.2.171:8212/</string>
+              <string>http://192.168.2.171:8213/</string>
+              <string>http://192.168.2.171:8215/</string>
+              <string>http://192.168.2.171:8216/</string>
+              <string>http://192.168.2.171:8218/</string>
+              <string>http://192.168.2.171:8220/</string>
+              <string>http://192.168.2.171:8221/</string>
+              <string>http://192.168.2.171:8222/</string>
+              <string>http://192.168.2.171:8223/</string>
+              <string>http://192.168.2.171:8224/</string>
+              <string>http://192.168.2.171:8227/</string>
+              <string>http://192.168.2.186:8200/</string>
+              <string>http://192.168.2.186:8201/</string>
+              <string>http://192.168.2.171:8242/</string>
+              <string>http://worldship.app1101790342.twsapp.com/</string>
+              <string>http://web.gz.1251006671.clb.myqcloud.com/</string>
+              <string>http://203.195.180.143:8090/</string>
+              <string>input</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>inputAddress</name>
+          <description>手动输入的web地址，可不填</description>
+          <defaultValue>EMPTY</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>serverIP</name>
+          <description>input - 自己输入ip地址
+app1101790342.t.tqapp.cn - 应用宝
+app1101790342.qzoneapp.com - 应用宝测试
+192.168.5.52 - 卢洋洋
+192.168.5.166 - 袁首
+192.168.5.152 - 黄迪
+192.168.5.141 - 王凯峰
+192.168.5.208 - 王同赛
+192.168.5.156 - 李化明
+192.168.5.147 - 俞钦彭
+192.168.5.122 - 王洪海
+192.168.5.130 - 韩永涛</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>app1101790342.t.tqapp.cn</string>
+              <string>app1101790342.qzoneapp.com</string>
+              <string>192.168.5.52</string>
+              <string>192.168.5.166</string>
+              <string>192.168.5.152</string>
+              <string>192.168.5.141</string>
+              <string>192.168.5.208</string>
+              <string>192.168.5.156</string>
+              <string>192.168.5.147</string>
+              <string>192.168.5.122</string>
+              <string>192.168.5.130</string>
+              <string>input</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>inputIP</name>
+          <description>手动输入的IP</description>
+          <defaultValue>EMPTY</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>portID</name>
+          <description>直连server时使用的端口id</description>
+          <defaultValue>23443</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>UID</name>
+          <description>直连server时使用的uid</description>
+          <defaultValue>72620548286338549</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>rem @echo off&#xd;
+&#xd;
+if {%connect%} == {web} (&#xd;
+	if {%webAddress%} == {input} (&#xd;
+		if {%inputAddress%} == {EMPTY} (&#xd;
+			echo inputAddress is NULL!&#xd;
+			exit&#xd;
+		)&#xd;
+	)&#xd;
+)&#xd;
+&#xd;
+if {%connect%} == {uidweb} (&#xd;
+	if {%webAddress%} == {input} (&#xd;
+		if {%inputAddress%} == {EMPTY} (&#xd;
+			echo inputAddress is NULL!&#xd;
+			exit&#xd;
+		)&#xd;
+	)&#xd;
+)&#xd;
+&#xd;
+if {%connect%} == {server} (&#xd;
+	if {%serverIP%} == {input} (&#xd;
+		if {%inputIP%} == {EMPTY} (&#xd;
+			echo inputIP is NULL!&#xd;
+			exit&#xd;
+		)&#xd;
+	)&#xd;
+&#xd;
+	if {%portID%} == {} (&#xd;
+		echo portID is NULL!&#xd;
+		exit&#xd;
+	)&#xd;
+&#xd;
+	if {%UID%} == {EMPTY} (&#xd;
+		echo UID is NULL!&#xd;
+		exit&#xd;
+	)&#xd;
+)&#xd;
+&#xd;
+cd /d e:&#xd;
+cd E:\worldshipsclient\trunk\worldship\projLocal.android&#xd;
+pack_local_apk.bat %res% %script% %connect% %webAddress% %inputAddress% %serverIP% %inputIP% %portID% %UID%&#xd;
+rem </command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

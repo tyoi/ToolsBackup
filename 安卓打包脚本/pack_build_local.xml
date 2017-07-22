@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+    <project basedir="." default="build" name="WorldshipLocal">
+
+    <property name="key.store" value="Worldship"/>
+    <property name="key.store.password" value="hqfy516"/>
+    <property name="key.alias" value="战舰帝国本地"/>
+    <property name="key.alias.password" value="hqfy516"/>
+
+    <!-- 引入路径设定文件 -->
+    <!--property file="pack_local.properties"/-->
+
+    <property environment="env"/>
+    <condition property="sdk.dir" value="${env.ANDROID_HOME}">
+        <isset property="env.ANDROID_HOME"/>
+    </condition>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="build_target" value="1.6"/>
+    <property name="target" value="android-19"/>
+    <property name="source" value="1.6"/>
+    
+    <!-- 引入SDK的ANT文件 -->
+    <import file="${sdk.dir}/tools/ant/build.xml"/>
+    
+    <!-- 声明路径 -->
+    <path id="Android 4.4.2.libraryclasspath">
+        <pathelement location="${sdk.dir}/platforms/android-19/android.jar"/>
+    </path>
+    <path id="Android Private Libraries.libraryclasspath">
+        <pathelement location="libs/mta-sdk-1.6.2.jar"/>
+        <pathelement location="libs/wlogin_sdk.jar"/>
+        <pathelement location="libs/android-support-v4.jar"/>
+        <pathelement location="libs/svn2924_open_sdk.jar"/>
+        <pathelement location="libs/TencentUnipaySDK.jar"/>
+    </path>
+    <path id="Android Dependencies.libraryclasspath">
+        <pathelement location="../../quick-cocos2d-x/lib/cocos2d-x/cocos2dx/platform/android/java/bin/libcocos2dx.jar"/>
+    </path>
+    <path id="WorldshipLocal.classpath">
+        <path refid="Android 4.4.2.libraryclasspath"/>
+        <path refid="Android Private Libraries.libraryclasspath"/>
+        <path refid="Android Dependencies.libraryclasspath"/>
+        <pathelement location="libs/mta-sdk-1.6.2.jar"/>
+        <pathelement location="libs/svn2924_open_sdk.jar"/>
+        <pathelement location="libs/TencentUnipaySDK.jar"/>
+        <pathelement location="libs/wlogin_sdk.jar"/>
+        <pathelement location="bin/classes"/>
+    </path>
+
+
+    <path id="Android 4.4.2.libraryclasspath">
+        <pathelement location="../../../../android/android/android-sdk-windows/android-sdk-windows/platforms/android-19/android.jar"/>
+    </path>
+    <path id="Android Private Libraries.libraryclasspath">
+        <pathelement location="libs/mta-sdk-1.6.2.jar"/>
+        <pathelement location="libs/wlogin_sdk.jar"/>
+        <pathelement location="libs/android-support-v4.jar"/>
+        <pathelement location="libs/svn2924_open_sdk.jar"/>
+        <pathelement location="libs/TencentUnipaySDK.jar"/>
+    </path>
+    <path id="Android Dependencies.libraryclasspath">
+        <pathelement location="../../quick-cocos2d-x/lib/cocos2d-x/cocos2dx/platform/android/java/bin/libcocos2dx.jar"/>
+    </path>
+    <path id="WorldshipLocal.classpath">
+        <path refid="Android 4.4.2.libraryclasspath"/>
+        <path refid="Android Private Libraries.libraryclasspath"/>
+        <path refid="Android Dependencies.libraryclasspath"/>
+        <pathelement location="bin/classes"/>
+    </path>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <path id="project.all.jars.path">
+        <path refid="WorldshipLocal.classpath"></path>
+    </path>
+
+    <!-- 任务 -->
+
+    <target name="-pre-compile">
+        <path id="Android 4.4.2.libraryclasspath">
+            <pathelement location="../../../../android/android/android-sdk-windows/android-sdk-windows/platforms/android-19/android.jar"/>
+        </path>
+        <path id="Android Private Libraries.libraryclasspath">
+            <pathelement location="libs/mta-sdk-1.6.2.jar"/>
+            <pathelement location="libs/wlogin_sdk.jar"/>
+            <pathelement location="libs/android-support-v4.jar"/>
+            <pathelement location="libs/svn2924_open_sdk.jar"/>
+            <pathelement location="libs/TencentUnipaySDK.jar"/>
+        </path>
+        <path id="Android Dependencies.libraryclasspath">
+            <pathelement location="../../quick-cocos2d-x/lib/cocos2d-x/cocos2dx/platform/android/java/bin/libcocos2dx.jar"/>
+        </path>
+        <path id="WorldshipLocal.classpath">
+            <!--path refid="Android 4.4.2.libraryclasspath"/-->
+            <path refid="Android Private Libraries.libraryclasspath"/>
+            <path refid="Android Dependencies.libraryclasspath"/>
+        </path>
+
+        <path id="project.all.jars.path">
+            <path refid="WorldshipLocal.classpath"></path>
+        </path>
+
+        <echo message="project.all.jars.path=${project.all.jars.path}" />
+        <echo message="tested.project.classpath=${tested.project.classpath}" />
+        <echo message="java.compiler.classpath=${java.compiler.classpath}" />
+        <echo message="WorldshipLocal.classpath=${WorldshipLocal.classpath}" />
+    </target>
+
+    <target name="init">
+        <mkdir dir="bin/classes"/>
+        <copy includeemptydirs="false" todir="bin/classes">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin/classes">
+            <fileset dir="gen">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="clean">
+        <delete dir="bin/classes"/>
+    </target>
+
+    <target depends="clean" name="cleanall"/>
+
+    <target depends="build-subprojects,build-project" name="build"/>
+
+    <target name="build-subprojects"/>
+
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin/classes" includeantruntime="false" source="${source}" target="${build_target}">
+            <src path="src"/>
+            <src path="gen"/>
+            <classpath refid="WorldshipLocal.classpath"/>
+        </javac>
+    </target>
+
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+
+    <!--target name="release"
+                depends="-set-release-mode, -release-obfuscation-check, -package, -post-package, -release-prompt-for-password, -release-nosign, -release-sign, -post-build, build-project"
+                description="Builds the application in release mode."/-->
+
+</project>

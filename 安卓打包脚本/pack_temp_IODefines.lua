@@ -1,0 +1,16 @@
+IODefines = {
+	server_ip = "ship.gz.1251006671.clb.myqcloud.com",
+	server_port = 443,
+	uid = "72620548286727538",
+	conectNet = false,
+	secret = "8613910246800",
+	region = "1",
+	openkey = "",
+	isUpdate = false,
+	site = 0,
+	stats_server = "",
+	coin_server = "",
+	coinserver = "",
+	res_base = "http://192.168.0.128:9888/",
+	rc4KeyData = { sid = "", logintime = 0, level = 1 },
+}
